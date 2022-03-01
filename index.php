@@ -10,7 +10,7 @@
       <img src="http://fillmurray.com/g/300/300" id="img-preview" />
       <label class="file-upload-container" for="file-upload">
         <input id="file-upload" type="file" style="display:none;">
-        Select an Image
+        Select your music
       </label>
       <audio id= "audio-render" controls autoplay>
   <source
