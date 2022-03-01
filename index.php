@@ -1,24 +1,27 @@
-<!DOCTYPE html>
 <html>
-<head>
-<title>How to put PHP in HTML - Simple Example</title>
-</head>
-<body>
-<?php
-$servername = "us-cdbr-east-05.cleardb.net";
-$username = "bbd2db5e7c59ce";
-$password = "0e63ed34";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
-echo "Hello from DB";
-
-?>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Cloudinary Tutorial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./home.css">
+  </head>
+  <body>
+    <div class="card">
+      <img src="http://fillmurray.com/g/300/300" id="img-preview" />
+      <label class="file-upload-container" for="file-upload">
+        <input id="file-upload" type="file" style="display:none;">
+        Select an Image
+      </label>
+      <audio id= "audio-render" controls autoplay>
+  <source
+    
+    type="audio/mpeg"
+  />
+  Your browser does not support the audio element.
+</audio>
+    </div>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
 </html>
