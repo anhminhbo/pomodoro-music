@@ -1,3 +1,3 @@
 <?php
-    require_once __DIR__ . '/frontend/views/loginregister.php';
+    require_once __DIR__ . '/frontend/loginregister.php';
 ?>
