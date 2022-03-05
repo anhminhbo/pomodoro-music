@@ -2,7 +2,7 @@ body
 {
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('pexels-fox-212324.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('background-img.jpg');
     background-size: 1800px;
     background-position: center;
     background-attachment: fixed;
