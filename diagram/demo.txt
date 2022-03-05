@@ -1,1 +1,62 @@
-to upload
+Pomodoro Music Player
+
+Description: An App to apply Pomodoro Technique when you are working and studying. Integrated with a music player so you can listen on when you are at break.
+Components:
+1.	Websites
+-	3 pages: Login page, Register page and Home page
+2.	Requirements:
+-	Register page: Username section, Password section, Login page anchor
++ Username: need to be validated, cannot be empty and character between 4~50
++ Password:  need to be validated, cannot be empty and character between 6~50, regex checking 1 Capital, 1 normal, 1 number and 1 special character, can vary depending on team 
++ When clicking submit -> check in db if username exists, if not save user info
++ After finish, redirect back to login page
+
+
+-	Login page: Username section, Password section, Register page anchor
++ Username: need to be validated, cannot be empty and character between 4~50
++ Password:  need to be validated, cannot be empty and character between 4~50
++ When click login -> check in db if username exists -> check if the password is same -> login successfully -> redirect to user home page
+
+
+-	Home page: A Music player and a Pomodoro Timer
++ Music player: 
+. can upload new song, delete song, can forward to next song, backward to previous song, Pause, Playing, Repeat
+. show song title, song name and song singer
+. save user playlist into db for next login
+. when it is breaktime, audio auto play
+
+
++ Pomodoro Timer:
+	. 2 default mode: 25/5 and 50/10
+	. User can set their custom timer and save current timer to db for next login
+	. When click start: the timer will start countdown and alert user whenever it is time to break or continuous working
+	. Validate user input for break and work(1->59 only)
+	. User can pause and refresh the timer
+
+Technology stack: HTML/CSS/JS/PHP/MySQL
+-	Register Logic: validate user input and save to db then redirect to Login
+-	Login logic: autofill username after registration, verify user input with user info in db if match -> proceed to home
+-	Home logic: 
++ The page will fetch last Timer of the user and last playlist song of the user, everything will start when the user click the Play button
++ Work Timer will start when user click Start button, if it is breaktime, timer reset to break timer and require user to click Start button again(this is to make User notice about their breaktime instead of making it a automatically loop), user can pause or refresh current Timer
++ When in break timer, music player will automatically play the current playlist, for simplicity, 1 user 1 playlist, user can pause the song, delete song, repeat song, forward and backward song
+
+Logic come first , Design come later
+
+Pomodoro reference tutorial: https://www.youtube.com/watch?v=vAEG6OVCass
+Music player reference tutorial: https://youtu.be/vAecGPWxzFE
+
+Deploy app tutorial: https://www.doabledanny.com/Deploy-PHP-And-MySQL-to-Heroku
+
+Migrate local tables to remote tables for ClearDB: https://www.youtube.com/watch?v=Zcg71lxW-Yo
+
+“Keep it simple”
+
+
+Flow for Upload and Render audio:
+-	Front End: User will upload audio to Cloudinary using Cloudinary API, after that, render page with new audio directly, send json file containing public url Cloudinary for that audio, B.E then will save that into DB, every time user login, F.E will fetch audio from Cloudinary and render page.
+-	Back End: Only save url info of Cloudinary audio so that F.E will fetch that from DB and render audio on next login phrase.
+1.	Login/Regiister - Validate username, pw
+2.	Timer
+3.	Music player
+4.	Db: thieets ke db 
