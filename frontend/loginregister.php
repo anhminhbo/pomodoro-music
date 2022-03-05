@@ -7,11 +7,11 @@
     require_once __DIR__ . '/login/login.php';
 
     // Wait for 5s before redirect to Home
-    echo "<script>
+    /*echo "<script>
         setTimeout(()=>{
             document.location.href='".$__DIR__."/frontend/views/home.php';
         },5000)
-    </script>";
+    </script>";*/
 
     // // Redirect to home
     // echo "<script type='text/javascript'>document.location.href='".$__DIR__."/frontend/views/home.php';</script>";
