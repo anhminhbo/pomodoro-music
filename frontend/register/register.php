@@ -15,9 +15,6 @@
         <form class="register">
             <p class="lbl">Register</p>
             <div class="input_group">
-                <input type="name" placeholder="Name" required>
-            </div>
-            <div class="input_group">
                 <input type="username" placeholder="Username" required>
             </div>
             <div class="input_group">
