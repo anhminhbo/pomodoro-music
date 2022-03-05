@@ -1,1 +1,44 @@
 /* Style of timer */
+/* body set up */
+
+body {
+    background-color: #dddd;
+    margin: 24px;
+}
+/* timer box */
+
+.timer {
+    font-family: sans-serif;
+    display: inline-block;
+    padding: 38px 32px;
+    border-radius: 30px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    
+}
+
+/* timer */
+.timer__part {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* stwich btn */
+.timer__btn {
+    width: 50px;
+    height: 50px;
+    margin-left: 16px;
+    border-radius: 50%;
+}
+
+.timer__btn-start {
+    background-color: #00b300;
+}
+.timer__btn-reset {
+    background-color: #ff0000;
+}
