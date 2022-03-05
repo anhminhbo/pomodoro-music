@@ -1,1 +1,90 @@
-/* Style of register */
+body
+{
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('pexels-fox-212324.jpg');
+    background-size: 1800px;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+}
+* 
+{
+    font-family: 'Poppins', sans-serif;
+}
+.container
+{
+    width: 400px;
+    min-height: 400px;
+    background: #FFF;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    padding: 40px 30px;
+}
+.lbl
+{
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: bolder;
+    font-size: 1.6rem;
+}
+.container .input_group
+{
+    width: 90%;
+    height: 100%;
+    margin-bottom: 25px;
+}
+.container .input_group input
+{
+    width: 100%;
+    height: 100%;
+    border: 2px solid #e7e7e7;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border-radius: 30px;
+    background: transparent;
+    outline: none;
+    transition: 0.3s;
+}
+.container .input_group input:hover
+{
+    border: 3px solid #649144;
+}
+.container .btn
+{
+    width: 100%;
+    padding: 15px 20px; 
+    text-align: center;
+    border: none;
+    background: #649144;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: #FFF;
+    cursor: pointer;
+    display: block;
+    justify-self: center;
+    transition: 0.3s;
+}
+.container .btn:hover
+{
+    transform: translateY(-5px);
+    background: #1C6111;
+}
+.direct_text
+{
+    margin-top: 45px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+.direct_text .direct_btn
+{
+    color: #649144
+}
+.direct_text .direct_btn:hover
+{
+    color: #1C6111;
+}
