@@ -21,7 +21,7 @@
                 <input type="password" placeholder="New password" required>
             </div>
             <div class="input_group">
-                <input type="con_password" placeholder="Confirm password" required>
+                <input type="password" placeholder="Confirm password" required>
             </div>
             <button class="btn">Register</button>
             <p class="direct_text">Already have an account? <a class="direct_btn" href="../login/login.php">Login here!</a></p>
