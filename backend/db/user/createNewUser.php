@@ -1,4 +1,3 @@
-
 <?php
 // For register page 
 // Connect to db
@@ -9,7 +8,7 @@
 		"message" => 'default'
 	];
 // Check if username , pw exist
-	if (isset($_POST['username']) && isset($_POST['password'])) {
+	if (isset($_POST['username']) && isset($_POST['password']) || isset($_POST[''])) {
 
 		// Query to db to see if username exist
 
@@ -17,39 +16,41 @@
 		$password = $_POST['password'];
 		
 		// prepare query statement
-		$query = "SELECT * FROM `heroku_6ce1a7fbfb7f295`.users 
-		WHERE username = '".$username."'";
+		$querySelect = "SELECT * FROM `heroku_6ce1a7fbfb7f295`.users 
+		WHERE username = '$username'";
 
 		// execute query
-		$resultQuery = mysqli_query($conn,$query);
+		$resultSelect = mysqli_query($conn,$querySelect);
+
+		// $row = mysqli_fetch_assoc($resultQuery);
 
 		// check if there is username duplicated
-		if ($resultQuery) {
+		if (mysqli_num_rows($resultSelect) > 0) {
 			//close db connection when finished
 			mysqli_close($conn);
 			$respJson["message"] = 'Create user failed';
 			$respJson["error"] = 'Username duplicated';
 			echo json_encode($respJson);
 			exit();
-		} 
-		
+		}
+		// Insert new user to db
 		// Prepare query
-		$stmt = $conn->prepare("INSERT INTO `heroku_6ce1a7fbfb7f295`.users 
-		(username, password) values( ?, ?)");
+		$queryInsert = "INSERT INTO `heroku_6ce1a7fbfb7f295`.users
+		(username, password) values( '$username', '$password')";
 
-		// Bind user input to query value
-		$stmt->bind_param("ss", $username, $password);
-		$execval = $stmt->execute();
-		$stmt->close();
-		$conn->close();
+		$resultInsert = mysqli_query($conn,$queryInsert);
 
-		if (!$execval) {
+		if (!$resultInsert) {
 			$respJson["message"] = 'Create user failed';
+			$respJson["error"] = "".mysqli_error($conn);
+			mysqli_close($conn);
 			echo json_encode($respJson);
 			exit();
 		}
 
+		mysqli_close($conn);
 		$respJson["message"] = 'Create user successfully';
 		echo json_encode($respJson);
 	}
+	
 ?>

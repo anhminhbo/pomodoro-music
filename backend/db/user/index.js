@@ -1,9 +1,11 @@
-const submitBtn = document.querySelector('input[type="submit"]');
+// const submitBtn = document.querySelector('input[type="submit"]');
+
+const form = document.querySelector("form");
 
 const username = document.querySelector("#username");
 const password = document.querySelector("#password");
 
-submitBtn.addEventListener("click", (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData();
   formData.append("username", username.value);
@@ -18,7 +20,7 @@ submitBtn.addEventListener("click", (e) => {
     data: formData,
   })
     .then((response) => {
-      console.log(response.data.error);
+      console.log(response.data);
     })
     .catch((err) => {
       console.log(err);
