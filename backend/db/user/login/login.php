@@ -1,7 +1,7 @@
 <?php
 // For register page 
 // Connect to db
-    require_once '../connection.php';
+    require_once '../../connection.php';
 
 	$respJson = [
 		"error" => 'no error',
@@ -40,9 +40,9 @@
 
         // Proceed to homepage
         // set cookie for old user to login again within 7 days
-		setcookie("username", $username,time()+60*60*24*7); 
-		setcookie("password", $password,time()+60*60*24*7); 
-		setcookie("userid", $row['id'],time()+60*60*24*7); 
+		setcookie("username", $username,time()+60*60*24*7,'/'); 
+		setcookie("password", $password,time()+60*60*24*7,'/'); 
+		setcookie("userid", $row['id'],time()+60*60*24*7,'/'); 
 
         mysqli_close($conn);
 

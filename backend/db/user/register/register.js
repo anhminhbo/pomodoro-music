@@ -21,7 +21,7 @@ form.addEventListener("submit", (e) => {
   })
     .then((response) => {
       if (response.data.message === "Create user successfully") {
-        document.location.href = "login.html";
+        document.location.href = "../login/login.html";
       } else {
         console.log(response.data);
       }

@@ -1,7 +1,7 @@
 <?php
 // For register page 
 // Connect to db
-    require_once '../connection.php';
+    require_once '../../connection.php';
 
 	$respJson = [
 		"error" => 'no error',
@@ -49,6 +49,7 @@
 			echo json_encode($respJson);
 			exit();
 		}
+
 		mysqli_close($conn);
 
 		// set cookie for new user to login after register within 6 hours
