@@ -28,17 +28,24 @@
             //close db connection when finished
 			mysqli_close($conn);
 
-            // //  convert mysqli-result into assoc array
-		    // $row = mysqli_fetch_assoc($resultQuery);
-
 			$respJson["message"] = 'Login failed';
 			$respJson["error"] = 'Username or Password incorrect';
 
 			echo json_encode($respJson);
 			exit();
 		}
+    
+        //  convert mysqli-result into assoc array
+		$row = mysqli_fetch_assoc($resultSelect);
 
         // Proceed to homepage
+        // set cookie for old user to login again within 7 days
+		setcookie("username", $username,time()+60*60*24*7); 
+		setcookie("password", $password,time()+60*60*24*7); 
+		setcookie("userid", $row['id'],time()+60*60*24*7); 
+
+        mysqli_close($conn);
+
 		$respJson["message"] = 'Login successfully';
 		echo json_encode($respJson);
 	}

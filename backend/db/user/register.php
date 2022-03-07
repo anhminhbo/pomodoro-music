@@ -51,9 +51,9 @@
 		}
 		mysqli_close($conn);
 
-		// set cookie for user to login within 7 days
-		setcookie("username", $username,time()+60*60*7); 
-		setcookie("password", $password,time()+60*60*7); 
+		// set cookie for new user to login after register within 6 hours
+		setcookie("username", $username,time()+60*60*6); 
+		setcookie("password", $password,time()+60*60*6); 
 
 		$respJson["message"] = 'Create user successfully';
 		echo json_encode($respJson);
