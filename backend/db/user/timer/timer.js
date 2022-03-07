@@ -14,6 +14,11 @@ const cookieObj = document.cookie
     {}
   );
 
+// handle if user haven't login yet
+if (!userid) {
+  document.location.href = "../login/login.html";
+}
+
 const userid = cookieObj.userid;
 
 // Make post request to fetch previous timer mode
