@@ -12,7 +12,7 @@ form.addEventListener("submit", (e) => {
   formData.append("password", password.value);
 
   axios({
-    url: "createNewUser.php",
+    url: "register.php",
     method: "POST",
     headers: {
       "Content-Type": "multipart/form-data",
@@ -20,7 +20,11 @@ form.addEventListener("submit", (e) => {
     data: formData,
   })
     .then((response) => {
-      console.log(response.data);
+      if (response.data.message === "Create user successfully") {
+        document.location.href = "login.html";
+      } else {
+        console.log(response.data);
+      }
     })
     .catch((err) => {
       console.log(err);
