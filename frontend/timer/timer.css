@@ -41,5 +41,34 @@ body {
 }
 .timer__btn-reset {
     background-color: #ff0000;
-    /* s */
+}
+
+/* session set */
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.set__box {
+    display: block;
+    justify-content: center;
+    margin: auto;
+    width: 40px;
+    height: 20px;
+}
+.btn {
+    width: 50px;
+    height: 40px;
+    border-radius: 30%;
+    background-color: #00b300;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;       
 }
