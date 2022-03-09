@@ -39,37 +39,6 @@ if (!userid) {
   document.location.href = "../login/login.html";
 }
 
-const form = $("#song-form");
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  // remember to handle input validation
-  const songFile = document.querySelector("#song-upload").files[0];
-  const songTitle = document.querySelector("#song-title").value;
-  const songSinger = document.querySelector("#song-singer").value;
-
-  const formData = new FormData();
-  formData.append("songUpload", songFile);
-  formData.append("songTitle", songTitle);
-  formData.append("songSinger", songSinger);
-  formData.append("userid", userid);
-
-  axios({
-    url: "musicUpload.php",
-    method: "POST",
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-    data: formData,
-  })
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
 const app = {
   currentIndex: 0,
   isPlaying: false,
@@ -104,6 +73,9 @@ const app = {
           console.log(this.songs);
           // Render playlist
           this.render();
+          // Tải thông tin bài hát đầu tiên vào UI khi chạy ứng dụng
+          // Load the first song information into the UI when running the app
+          this.loadCurrentSong();
         } else {
           console.log(response.data);
         }
@@ -316,10 +288,6 @@ const app = {
     // Listening / handling events (DOM events)
     this.handleEvents();
 
-    // Tải thông tin bài hát đầu tiên vào UI khi chạy ứng dụng
-    // Load the first song information into the UI when running the app
-    this.loadCurrentSong();
-
     // Hiển thị trạng thái ban đầu của button repeat & random
     // Display the initial state of the repeat & random button
     randomBtn.classList.toggle("active", this.isRandom);
@@ -328,3 +296,37 @@ const app = {
 };
 
 app.start();
+
+const form = $("#song-form");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  // remember to handle input validation
+  const songFile = document.querySelector("#song-upload").files[0];
+  const songTitle = document.querySelector("#song-title").value;
+  const songSinger = document.querySelector("#song-singer").value;
+
+  const formData = new FormData();
+  formData.append("songUpload", songFile);
+  formData.append("songTitle", songTitle);
+  formData.append("songSinger", songSinger);
+  formData.append("userid", userid);
+
+  axios({
+    url: "musicUpload.php",
+    method: "POST",
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+    data: formData,
+  })
+    .then((response) => {
+      if (response.data.message === "Upload song successfully") {
+        app.songs.push(response.data.playlist);
+        app.render;
+      } else console.log(response.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
