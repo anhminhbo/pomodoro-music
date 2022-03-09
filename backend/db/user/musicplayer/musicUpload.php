@@ -76,12 +76,38 @@ if ($_POST['songTitle']&& $_POST['songSinger'
         exit();
     }
 
-    mysqli_close($conn);
+    // Query to fetch newest song just uploaded
+    // prepare query statement
+		$querySelect = "SELECT * from songs WHERE user_id = $userid 
+        ORDER BY id DESC LIMIT 1";
 
-    $respJson["fileUploadData"] = [
-        'path' => $cloudinarySecureUrl,
-        'deletePublic' => $cloudinaryPublicId
-    ];
+		// execute query
+		$resultSelect = mysqli_query($conn,$querySelect);
+
+		// If no song -> return error
+		if (mysqli_num_rows($resultSelect) == 0) {
+			//close db connection when finished
+			mysqli_close($conn);
+			$respJson["message"] = 'Fetch new song failed';
+			$respJson["error"] = 'No newest song uploaded';
+
+			echo json_encode($respJson);
+			exit();
+		}
+
+		// If newest song exists -> return new song data to client
+		// Prepare query
+        $row = mysqli_fetch_assoc($resultSelect);
+
+        $respJson["uploadedSongData"] = [
+            "id" => $row["id"],
+            "deletePublic" => $row["public_id"],
+            "path" => $row["song_url"],
+            "title" => $row['title'],
+            "singer" => $row["singer"]
+        ];
+		mysqli_close($conn);
+
     
     $respJson["message"] = 'Upload song successfully';
     echo json_encode($respJson);
