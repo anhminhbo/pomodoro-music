@@ -41,7 +41,7 @@
 
 		// If update successful -> return update successful
 		mysqli_close($conn);
-        
+
 		$respJson["message"] = 'Update timer succesfully';
 		echo json_encode($respJson);
 	}

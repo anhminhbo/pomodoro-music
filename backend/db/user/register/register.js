@@ -7,7 +7,9 @@ const password = document.querySelector("#password");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
   const formData = new FormData();
+
   formData.append("username", username.value);
   formData.append("password", password.value);
 
@@ -23,6 +25,7 @@ form.addEventListener("submit", (e) => {
       if (response.data.message === "Create user successfully") {
         document.location.href = "../login/login.html";
       } else {
+        // handle when username duplicated
         console.log(response.data);
       }
     })
