@@ -78,8 +78,8 @@ if ($_POST['songTitle']&& $_POST['songSinger'
 
     // Query to fetch newest song just uploaded
     // prepare query statement
-		$querySelect = "SELECT * from songs WHERE user_id = $userid 
-        ORDER BY id DESC LIMIT 1";
+		$querySelect = "SELECT * FROM `heroku_6ce1a7fbfb7f295`.songs 
+        WHERE user_id = $userid ORDER BY id DESC LIMIT 1";
 
 		// execute query
 		$resultSelect = mysqli_query($conn,$querySelect);
