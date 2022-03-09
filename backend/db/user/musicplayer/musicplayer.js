@@ -323,7 +323,7 @@ form.addEventListener("submit", (e) => {
     .then((response) => {
       if (response.data.message === "Upload song successfully") {
         app.songs.push(response.data.playlist);
-        app.render;
+        app.render();
       } else console.log(response.data);
     })
     .catch((err) => {
