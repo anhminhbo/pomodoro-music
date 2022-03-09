@@ -17,7 +17,6 @@ if ($_POST['songTitle']&& $_POST['songSinger'
     $name = $_FILES['songUpload']['name'];
 
     $tmp_name = $_FILES['songUpload']['tmp_name'];
-    echo $tmp_name;
     $type = $_FILES['songUpload']['type'];
 
     $data = file_get_contents($tmp_name);
