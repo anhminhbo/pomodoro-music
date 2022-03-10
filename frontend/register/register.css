@@ -18,7 +18,7 @@ body
 .container
 {
     width: 400px;
-    min-height: 400px;
+    min-height: 350px;
     background: #FFF;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, .3);
@@ -76,7 +76,8 @@ body
 }
 .direct_text
 {
-    margin-top: 45px;
+    margin-top: 40px;
+    margin-bottom: 0;
     text-align: center;
     font-size: 1.1rem;
 }
@@ -88,9 +89,20 @@ body
 {
     color: #1C6111;
 }
-#message
+#footer 
 {
-    padding: 20px;
-    padding-top: 10px;
-    color: rgba(128, 128, 128, 0.432);
+    position: fixed;
+    outline: none;
+    width: 96%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    padding: 10px 30px 10px 30px;
+    background-color: #649144;
+    color: white;
+    text-transform: capitalize;
+    font-size: 1.5rem;
 }

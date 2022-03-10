@@ -88,3 +88,20 @@ body
 {
     color: #1C6111;
 }
+#footer 
+{
+    position: fixed;
+    outline: none;
+    width: 96%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    padding: 10px 30px 10px 30px;
+    background-color: #649144;
+    color: white;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+}
