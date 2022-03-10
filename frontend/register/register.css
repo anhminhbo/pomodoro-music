@@ -88,3 +88,9 @@ body
 {
     color: #1C6111;
 }
+#message
+{
+    padding: 20px;
+    padding-top: 10px;
+    color: rgba(128, 128, 128, 0.432);
+}
