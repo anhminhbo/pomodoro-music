@@ -18,20 +18,25 @@
       <form class="register">
         <p class="lbl">Register</p>
         <div class="input_group">
-          <input type="username" placeholder="Username" required />
+          <input type="username" id="username" placeholder="Username" required />
         </div>
         <div class="input_group">
-          <input type="password" placeholder="New password" required />
+          <input type="password" id="password" placeholder="New password" onkeyup="check();" required />
         </div>
         <div class="input_group">
-          <input type="password" placeholder="Confirm password" required />
+          <input type="password" id="con_password" placeholder="Confirm password" onkeyup="check();" required />
         </div>
-        <button class="btn">Register</button>
+        <button class="btn" type="submit">Register</button>
         <p class="direct_text">
           Already have an account?
           <a class="direct_btn" href="../login/login.html">Login here!</a>
         </p>
       </form>
     </div>
+    <section>
+      <footer id="footer">COPYRIGHT © 2022 MKKA - RMIT UNIVERSITY</footer>
+    </section>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="register.js"></script>
   </body>
 </html>
