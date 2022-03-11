@@ -335,42 +335,44 @@ app.start();
 
 const form = $("#song-form");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  // remember to handle input validation
-  const songFile = document.querySelector("#song-upload").files[0];
-  const songTitle = document.querySelector("#song-title").value;
-  const songSinger = document.querySelector("#song-singer").value;
+if (app.songs.length < 20) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    // remember to handle input validation
+    const songFile = document.querySelector("#song-upload").files[0];
+    const songTitle = document.querySelector("#song-title").value;
+    const songSinger = document.querySelector("#song-singer").value;
 
-  const formData = new FormData();
-  formData.append("songUpload", songFile);
-  formData.append("songTitle", songTitle);
-  formData.append("songSinger", songSinger);
-  formData.append("userid", userid);
+    const formData = new FormData();
+    formData.append("songUpload", songFile);
+    formData.append("songTitle", songTitle);
+    formData.append("songSinger", songSinger);
+    formData.append("userid", userid);
 
-  axios({
-    url: "songUpload.php",
-    method: "POST",
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-    data: formData,
-  })
-    .then((response) => {
-      if (response.data.message === "Upload song successfully") {
-        console.log(response.data);
-
-        // Update UI when update songs successfully
-        app.songs.push(response.data.uploadedSongData);
-        app.render();
-
-        // Reset UI when uploading
-        document.querySelector("#song-upload").value = "";
-        document.querySelector("#song-title").value = "";
-        document.querySelector("#song-singer").value = "";
-      } else console.log(response.data);
+    axios({
+      url: "songUpload.php",
+      method: "POST",
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      data: formData,
     })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+      .then((response) => {
+        if (response.data.message === "Upload song successfully") {
+          console.log(response.data);
+
+          // Update UI when update songs successfully
+          app.songs.push(response.data.uploadedSongData);
+          app.render();
+
+          // Reset UI when uploading
+          document.querySelector("#song-upload").value = "";
+          document.querySelector("#song-title").value = "";
+          document.querySelector("#song-singer").value = "";
+        } else console.log(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+} else console.log("1 playlist only has 20 songs");

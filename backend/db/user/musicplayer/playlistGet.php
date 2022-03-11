@@ -20,7 +20,7 @@
 
 		// prepare query statement
 		$querySelect = "SELECT * FROM `heroku_6ce1a7fbfb7f295`.songs 
-		WHERE user_id = $userid LIMIT 10";
+		WHERE user_id = $userid LIMIT 20";
 
 		// execute query
 		$resultSelect = mysqli_query($conn,$querySelect);
