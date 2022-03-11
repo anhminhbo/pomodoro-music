@@ -7,9 +7,6 @@ $respJson = [
     "message" => 'default'
 ];
 
-ini_set('upload_max_filesize', '100M');
-ini_set('post_max_size', '100M');
-
 if ($_POST['songTitle']&& $_POST['songSinger'
 ]&& isset($_POST['userid'])) {
     // Upload audio to Cloudinary

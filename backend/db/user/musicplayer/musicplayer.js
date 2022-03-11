@@ -220,16 +220,52 @@ const app = {
       if (songNode || e.target.closest(".option")) {
         // Xử lý khi click vào song
         // Handle when clicking on the song
-        if (songNode) {
+        if (songNode && !e.target.closest(".option")) {
           _this.currentIndex = Number(songNode.dataset.index);
           _this.loadCurrentSong();
           _this.render();
           audio.play();
         }
 
-        // Xử lý khi click vào song option
+        // Xử lý khi click vào song option (Delete option)
         // Handle when clicking on the song option
-        if (e.target.closest(".option")) {
+        if (e.target.closest(".option") && songNode) {
+          const formDataDeletePlaylist = new FormData();
+          formDataDeletePlaylist.append("userid", userid);
+          formDataDeletePlaylist.append(
+            "deletePublic",
+            _this.songs[Number(songNode.dataset.index)].deletePublic
+          );
+          formDataDeletePlaylist.append(
+            "songid",
+            _this.songs[Number(songNode.dataset.index)].id
+          );
+
+          axios({
+            url: "songDelete.php",
+            method: "POST",
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+            data: formDataDeletePlaylist,
+          })
+            .then((response) => {
+              if (response.data.message === "Delete song successfully") {
+                songNode.remove();
+                const deletedSong = _this.songs.splice(
+                  Number(songNode.dataset.index),
+                  1
+                );
+                console.log(deletedSong);
+                console.log(_this.songs);
+              } else {
+                console.log(response.data);
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+          songNode.remove();
         }
       }
     };
@@ -313,7 +349,7 @@ form.addEventListener("submit", (e) => {
   formData.append("userid", userid);
 
   axios({
-    url: "musicUpload.php",
+    url: "songUpload.php",
     method: "POST",
     headers: {
       "Content-Type": "multipart/form-data",
