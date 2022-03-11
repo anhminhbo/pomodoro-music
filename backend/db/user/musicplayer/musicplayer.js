@@ -359,8 +359,15 @@ form.addEventListener("submit", (e) => {
     .then((response) => {
       if (response.data.message === "Upload song successfully") {
         console.log(response.data);
+
+        // Update UI when update songs successfully
         app.songs.push(response.data.uploadedSongData);
         app.render();
+
+        // Reset UI when uploading
+        document.querySelector("#song-upload").value = "";
+        document.querySelector("#song-title").value = "";
+        document.querySelector("#song-singer").value = "";
       } else console.log(response.data);
     })
     .catch((err) => {
