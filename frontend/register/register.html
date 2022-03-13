@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
       rel="stylesheet"
     />
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Register</title>
   </head>
   <body>
@@ -25,6 +26,10 @@
         </div>
         <div class="input_group">
           <input type="password" id="con_password" placeholder="Confirm password" onkeyup="check();" required />
+        </div>
+        <div id="message_box">
+          <i id="message_icon" class='bx bxs-error-circle' style="padding-top: 5px; display: inline;"></i> 
+          <div id="message" style="display: inline;">Use a password between 6 to 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter.</div>
         </div>
         <button class="btn" type="submit">Register</button>
         <p class="direct_text">
