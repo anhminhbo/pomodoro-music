@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Login</title>
 </head>
 <body>
@@ -20,8 +21,15 @@
             <div class="input_group">
                 <input type="password" id="password" placeholder="Password" required>
             </div>
+            <div id="message_box">
+                <i id="message_icon" class='bx bxs-error-circle' style="display: inline;"></i> 
+                <div id="message" style="display: inline;">Username or password incorrect. Please input again.</div>
+            </div> 
             <button class="btn">Login</button>
-            <p class="direct_text">Don't have an account? <a class="direct_btn" href="../register/register.html">Register Now.</a></p>
+            <p class="direct_text">
+                Don't have an account? 
+                <a class="direct_btn" href="../register/register.html">Register Now.</a>
+            </p>
         </form>
     </div>
     <section>

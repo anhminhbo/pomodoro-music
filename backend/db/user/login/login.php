@@ -28,8 +28,8 @@
             //close db connection when finished
 			mysqli_close($conn);
 
-			$respJson["message"] = 'Login failed';
-			$respJson["error"] = 'Username or Password incorrect';
+			$respJson["message"] = 'Login failed.';
+			$respJson["error"] = 'Username or password incorrect.';
 
 			echo json_encode($respJson);
 			exit();
