@@ -105,3 +105,13 @@ body
     text-transform: capitalize;
     font-size: 1.5rem;
 }
+#message_box
+{
+    color: red; 
+    display: none;
+    margin-bottom: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 0.8rem;
+    text-align: justify;
+}
