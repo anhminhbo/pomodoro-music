@@ -12,6 +12,7 @@ function redirect(){
 
 document.querySelector('.btn').onclick = function(e){
   e.preventDefault();
+  console.log(username.value.match(/^[a-zA-Z0-9]+$/)?"True":"False");
   if (username.value.match(/^[a-zA-Z0-9]+$/))
   {
     if (password.value.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/)){
