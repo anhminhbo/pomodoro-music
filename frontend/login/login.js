@@ -44,6 +44,8 @@ form.addEventListener("submit", (e) => {
         message_icon.className = "bx bxs-check-circle"
         message_box.style.color = "green"
         console.log("Direct to content page");
+        message.style.display = "none";
+        message_icon.style.display = "none";
         document.location.href = "../timer/timer.html"
       } else {
         message_box.style.display = "block";
