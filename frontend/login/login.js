@@ -6,7 +6,6 @@ const message_box = document.querySelector("#message_box");
 const message_icon = document.querySelector("#message_icon");
 const message = document.querySelector("#message");
 
-
 // Get cookie obj from browser
 const cookieObj = document.cookie
   .split(";")
@@ -40,23 +39,25 @@ form.addEventListener("submit", (e) => {
     .then((response) => {
       if (response.data.message === "Login successfully") {
         message_box.style.display = "block";
-        message.textContent = "All right. Redirecting to content page..."
-        message_icon.className = "bx bxs-check-circle"
-        message_box.style.color = "green"
-        console.log("Direct to content page");
+        message.textContent = "All right. Redirecting to content page...";
+        message_icon.className = "bx bxs-check-circle";
+        message_box.style.color = "green";
         message.style.display = "none";
         message_icon.style.display = "none";
-        document.location.href = "../../backend/db/user/musicplayer/musicplayer.html"
-      } 
-      else {
+        document.location.href =
+          "../../backend/db/user/musicplayer/musicplayer.html";
+      } else {
         message_box.style.display = "block";
-        message.textContent = "Username or password incorrect. Please input again."
-        message_icon.className = "bx bxs-error-circle"
-        message_box.style.color = "red"
-        console.log(response.data);
+        message.textContent =
+          "Username or password incorrect. Please input again.";
+        message_icon.className = "bx bxs-error-circle";
+        message_box.style.color = "red";
       }
     })
     .catch((err) => {
+      message_box.style.display = "block";
+      message.textContent = "Something wrong happened. Please try again later.";
+      message_icon.className = "bx bxs-error-circle";
       console.log(err);
     });
 });
