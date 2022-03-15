@@ -46,8 +46,9 @@ form.addEventListener("submit", (e) => {
         console.log("Direct to content page");
         message.style.display = "none";
         message_icon.style.display = "none";
-        document.location.href = "../timer/timer.html"
-      } else {
+        document.location.href = "../../backend/db/musicplayer/musicplayer.html"
+      } 
+      else {
         message_box.style.display = "block";
         message.textContent = "Username or password incorrect. Please input again."
         message_icon.className = "bx bxs-error-circle"
