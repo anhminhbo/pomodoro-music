@@ -46,7 +46,7 @@ form.addEventListener("submit", (e) => {
         console.log("Direct to content page");
         message.style.display = "none";
         message_icon.style.display = "none";
-        document.location.href = "../../backend/db/musicplayer/musicplayer.html"
+        document.location.href = "../../backend/db/user/musicplayer/musicplayer.html"
       } 
       else {
         message_box.style.display = "block";
