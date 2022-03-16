@@ -64,7 +64,7 @@
 
     // If delete song in Db failed
     if (!$resultDelete) {
-        $respJson["message"] = 'Upload song failed';
+        $respJson["message"] = 'Delete song failed';
         $respJson["error"] = "".mysqli_error($conn);
         mysqli_close($conn);
         echo json_encode($respJson);

@@ -132,6 +132,8 @@ header h2 {
 .playlist {
   margin-top: 100px;
   padding: 12px;
+  overflow-y: scroll;
+  height: 362px;
 }
 
 .song {
