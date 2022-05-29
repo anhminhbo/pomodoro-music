@@ -36,7 +36,7 @@ const userid = cookieObj.userid;
 
 // handle if user haven't login yet
 if (!userid) {
-  document.location.href = "../../../../frontend/login/login.html";
+  document.location.href = "../../../../frontend/login/login.php";
 }
 
 const app = {

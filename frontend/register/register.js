@@ -7,7 +7,7 @@ const message = document.querySelector("#message");
 const message_icon = document.querySelector("#message_icon");
 
 function redirect() {
-  document.location.href = "../login/login.html";
+  document.location.href = "../login/login.php";
 }
 
 document.querySelector(".btn").onclick = function (e) {

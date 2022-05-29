@@ -1,6 +1,7 @@
 <?php
 // For register page 
 // Connect to db
+	session_start();
     require_once '../../connection.php';
 
 	$respJson = [
@@ -16,14 +17,14 @@
 		$password = $_POST['password'];
         $hashPassword = md5($password);
 		
-		// prepare query statement
+		// Prepare query statement
 		$querySelect = "SELECT * FROM `heroku_6ce1a7fbfb7f295`.users 
 		WHERE username = '$username' AND password = '$hashPassword'";
 
-		// execute query
+		// Execute query
 		$resultSelect = mysqli_query($conn,$querySelect);
 
-		// check if username and password are both correct
+		// Check if username and password are both correct
 		if (mysqli_num_rows($resultSelect) == 0) {
             //close db connection when finished
 			mysqli_close($conn);
@@ -35,14 +36,15 @@
 			exit();
 		}
     
-        //  convert mysqli-result into assoc array
+        // Convert mysqli-result into assoc array
 		$row = mysqli_fetch_assoc($resultSelect);
 
         // Proceed to homepage
-        // set cookie for old user to login again within 7 days
-		setcookie("username", $username,time()+60*60*24*7,'/'); 
-		setcookie("password", $password,time()+60*60*24*7,'/'); 
-		setcookie("userid", $row['id'],time()+60*60*24*7,'/'); 
+        // Set session
+		$_SESSION["loggedIn"] = true;
+		$_SESSION["username"] = $username;
+		$_SESSION["password"] = $password;
+		$_SESSION["userID"] = $row['id']; 
 
         mysqli_close($conn);
 
