@@ -6,22 +6,6 @@ const message_box = document.querySelector("#message_box");
 const message_icon = document.querySelector("#message_icon");
 const message = document.querySelector("#message");
 
-// Get cookie obj from browser
-const cookieObj = document.cookie
-  .split(";")
-  .map((cookie) => cookie.split("="))
-  .reduce(
-    (accumulator, [key, value]) => ({
-      ...accumulator,
-      [key.trim()]: decodeURIComponent(value),
-    }),
-    {}
-  );
-
-// Handle username and password value if cookie exists
-username.value = cookieObj.username ? cookieObj.username : "";
-password.value = cookieObj.password ? cookieObj.password : "";
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData();

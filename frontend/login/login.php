@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    $username = '';
+    $password = '';
+    if (isset($_SESSION["successReg"])){
+        $username = $_SESSION["username"];
+        $password = $_SESSION["password"];
+        session_destroy();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +26,10 @@
         <form class="login">
             <p class="lbl">Login</p>
             <div class="input_group">
-                <input type="username" id="username" placeholder="Username" required>
+                <input type="username" id="username" placeholder="Username" required value=<?php echo $username;?>>
             </div>
             <div class="input_group">
-                <input type="password" id="password" placeholder="Password" required>
+                <input type="password" id="password" placeholder="Password" required value=<?php echo $password;?>>
             </div>
             <div id="message_box">
                 <i id="message_icon" class='bx bxs-error-circle' style="display: inline;"></i> 
@@ -28,7 +38,7 @@
             <button class="btn">Login</button>
             <p class="direct_text">
                 Don't have an account? 
-                <a class="direct_btn" href="../register/register.html">Register Now.</a>
+                <a class="direct_btn" href="../register/register.php">Register Now.</a>
             </p>
         </form>
     </div>

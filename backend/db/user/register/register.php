@@ -1,6 +1,7 @@
 <?php
 // For register page 
 // Connect to db
+	session_start();
     require_once '../../connection.php';
 
 	$respJson = [
@@ -53,8 +54,9 @@
 		mysqli_close($conn);
 
 		// set cookie for new user to login after register within 6 hours
-		setcookie("username", $username,time()+60*60*6,'/'); 
-		setcookie("password", $password,time()+60*60*6,'/'); 
+		$_SESSION["successReg"] = true;
+		$_SESSION["username"] = $username;
+		$_SESSION["password"] = $password;
 
 		$respJson["message"] = 'Create user successfully';
 		echo json_encode($respJson);
